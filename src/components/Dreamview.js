@@ -57,10 +57,10 @@ export default class Dreamview extends React.Component {
   }
 
   componentDidMount() {
-    WS.initialize();
-    MAP_WS.initialize();
-    POINT_CLOUD_WS.initialize();
-    CAMERA_WS.initialize();
+    // WS.initialize();
+    // MAP_WS.initialize();
+    // POINT_CLOUD_WS.initialize();
+    // CAMERA_WS.initialize();
     window.addEventListener('resize', this.updateDimension, false);
     window.addEventListener('keypress', this.handleKeyPress, false);
   }

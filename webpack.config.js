@@ -19,7 +19,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, "dist"),
         filename: "[name].bundle.js",
-        publicPath: "/",
+        publicPath: "/apollo-hd-map-viewer/",
     },
 
     devtool: "cheap-source-map",

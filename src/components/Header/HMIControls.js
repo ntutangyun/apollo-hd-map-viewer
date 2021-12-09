@@ -18,29 +18,29 @@ export default class HMIControls extends React.Component {
 
     return (
             <React.Fragment>
-                <button className="header-item header-button" onClick={() => alert(dockerImage)}>
-                    Docker Version
-                </button>
-                <button
-                    className={classNames({
-                      'header-item': true,
-                      'header-button': true,
-                      'header-button-active': isCoDriver,
-                    })}
-                    onClick={() => this.props.store.hmi.toggleCoDriverFlag()}
-                >
-                    Co-Driver
-                </button>
-                <button
-                    className={classNames({
-                      'header-item': true,
-                      'header-button': true,
-                      'header-button-active': isMute,
-                    })}
-                    onClick={() => this.props.store.hmi.toggleMuteFlag()}
-                >
-                    Mute
-                </button>
+                {/*<button className="header-item header-button" onClick={() => alert(dockerImage)}>*/}
+                {/*    Docker Version*/}
+                {/*</button>*/}
+                {/*<button*/}
+                {/*    className={classNames({*/}
+                {/*      'header-item': true,*/}
+                {/*      'header-button': true,*/}
+                {/*      'header-button-active': isCoDriver,*/}
+                {/*    })}*/}
+                {/*    onClick={() => this.props.store.hmi.toggleCoDriverFlag()}*/}
+                {/*>*/}
+                {/*    Co-Driver*/}
+                {/*</button>*/}
+                {/*<button*/}
+                {/*    className={classNames({*/}
+                {/*      'header-item': true,*/}
+                {/*      'header-button': true,*/}
+                {/*      'header-button-active': isMute,*/}
+                {/*    })}*/}
+                {/*    onClick={() => this.props.store.hmi.toggleMuteFlag()}*/}
+                {/*>*/}
+                {/*    Mute*/}
+                {/*</button>*/}
                 <HMISelectors
                     modes={modes}
                     currentMode={currentMode}
