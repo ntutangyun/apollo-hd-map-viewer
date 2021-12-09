@@ -10,10 +10,10 @@
         "node": ">=12.18.1"
     },
     "scripts": {
-        "build": "./setup.sh; node_modules/.bin/webpack  --progress --mode=production",
-        "start": "./setup.sh; node_modules/.bin/webpack-dev-server --progress --mode=development --watch-poll",
-        "build_offline": "./setup.sh; node_modules/.bin/webpack -p --progress --config webpack.offline.config.js",
-        "start_offline": "./setup.sh; node_modules/.bin/webpack-dev-server --watch-poll --config webpack.offline.config.js",
+        "build": "node_modules/.bin/webpack  --progress --mode=production",
+        "start": "node_modules/.bin/webpack-dev-server --progress --mode=development --watch-poll",
+        "build_offline": "node_modules/.bin/webpack -p --progress --config webpack.offline.config.js",
+        "start_offline": "node_modules/.bin/webpack-dev-server --watch-poll --config webpack.offline.config.js",
         "lint": "./node_modules/eslint/bin/eslint.js src",
         "lint-fix": "./node_modules/eslint/bin/eslint.js --fix src"
     },
