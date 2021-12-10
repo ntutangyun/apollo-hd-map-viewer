@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -92,6 +93,40 @@ proto.apollo.hdmap.LoopsVerifyRequest.toObject = function(includeInstance, msg) 
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LoopsVerifyRequest as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.LoopsVerifyRequest.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.cmd;
+
+  /** @type {?|undefined} */
+  this.type;
+
+  /** @type {?|undefined} */
+  this.rangeList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.LoopsVerifyRequest.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.LoopsVerifyRequest}
+ */
+proto.apollo.hdmap.LoopsVerifyRequest.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.LoopsVerifyRequest();
+  obj.cmd != null && jspb.Message.setField(msg, 1, obj.cmd);
+  obj.type != null && jspb.Message.setField(msg, 2, obj.type);
+  obj.rangeList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.rangeList.map(
+          proto.apollo.hdmap.VerifyRange.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

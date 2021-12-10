@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -90,6 +91,37 @@ proto.apollo.relative_map.NavigationInfo.toObject = function(includeInstance, ms
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of NavigationInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.relative_map.NavigationInfo.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.navigationPathList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.relative_map.NavigationInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.relative_map.NavigationInfo}
+ */
+proto.apollo.relative_map.NavigationInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.relative_map.NavigationInfo();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.navigationPathList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.navigationPathList.map(
+          proto.apollo.relative_map.NavigationPath.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

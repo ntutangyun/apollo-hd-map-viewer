@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -90,6 +91,37 @@ proto.apollo.hdmap.VerifyResult.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VerifyResult as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.VerifyResult.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.topics;
+
+  /** @type {?|undefined} */
+  this.ratesList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.VerifyResult.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.VerifyResult}
+ */
+proto.apollo.hdmap.VerifyResult.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.VerifyResult();
+  obj.topics && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.TopicResult.fromObject(obj.topics));
+  obj.ratesList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.ratesList.map(
+          proto.apollo.hdmap.FrameRate.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

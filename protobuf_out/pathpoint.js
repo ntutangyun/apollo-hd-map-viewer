@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,70 @@ proto.apollo.common.PathPoint.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of PathPoint as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.PathPoint.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.x;
+
+  /** @type {?|undefined} */
+  this.y;
+
+  /** @type {?|undefined} */
+  this.z;
+
+  /** @type {?|undefined} */
+  this.theta;
+
+  /** @type {?|undefined} */
+  this.kappa;
+
+  /** @type {?|undefined} */
+  this.s;
+
+  /** @type {?|undefined} */
+  this.dkappa;
+
+  /** @type {?|undefined} */
+  this.ddkappa;
+
+  /** @type {?|undefined} */
+  this.laneId;
+
+  /** @type {?|undefined} */
+  this.xDerivative;
+
+  /** @type {?|undefined} */
+  this.yDerivative;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.PathPoint.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.PathPoint}
+ */
+proto.apollo.common.PathPoint.fromObject = function(obj) {
+  var msg = new proto.apollo.common.PathPoint();
+  obj.x != null && jspb.Message.setField(msg, 1, obj.x);
+  obj.y != null && jspb.Message.setField(msg, 2, obj.y);
+  obj.z != null && jspb.Message.setField(msg, 3, obj.z);
+  obj.theta != null && jspb.Message.setField(msg, 4, obj.theta);
+  obj.kappa != null && jspb.Message.setField(msg, 5, obj.kappa);
+  obj.s != null && jspb.Message.setField(msg, 6, obj.s);
+  obj.dkappa != null && jspb.Message.setField(msg, 7, obj.dkappa);
+  obj.ddkappa != null && jspb.Message.setField(msg, 8, obj.ddkappa);
+  obj.laneId != null && jspb.Message.setField(msg, 9, obj.laneId);
+  obj.xDerivative != null && jspb.Message.setField(msg, 10, obj.xDerivative);
+  obj.yDerivative != null && jspb.Message.setField(msg, 11, obj.yDerivative);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

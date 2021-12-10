@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -88,6 +89,32 @@ proto.apollo.common.Extrinsics.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Extrinsics as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.Extrinsics.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.tansformsList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.Extrinsics.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.Extrinsics}
+ */
+proto.apollo.common.Extrinsics.fromObject = function(obj) {
+  var msg = new proto.apollo.common.Extrinsics();
+  obj.tansformsList && jspb.Message.setRepeatedWrapperField(
+      msg, 1, obj.tansformsList.map(
+          proto.apollo.common.Transform.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

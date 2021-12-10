@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -93,6 +94,43 @@ proto.apollo.hdmap.Overlap.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Overlap as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Overlap.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.objectList;
+
+  /** @type {?|undefined} */
+  this.regionOverlapList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Overlap.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Overlap}
+ */
+proto.apollo.hdmap.Overlap.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Overlap();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.objectList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.objectList.map(
+          proto.apollo.hdmap.ObjectOverlapInfo.fromObject));
+  obj.regionOverlapList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.regionOverlapList.map(
+          proto.apollo.hdmap.RegionOverlapInfo.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

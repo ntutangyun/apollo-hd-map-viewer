@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -83,6 +84,46 @@ proto.apollo.common.SpeedPoint.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of SpeedPoint as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.SpeedPoint.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.s;
+
+  /** @type {?|undefined} */
+  this.t;
+
+  /** @type {?|undefined} */
+  this.v;
+
+  /** @type {?|undefined} */
+  this.a;
+
+  /** @type {?|undefined} */
+  this.da;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.SpeedPoint.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.SpeedPoint}
+ */
+proto.apollo.common.SpeedPoint.fromObject = function(obj) {
+  var msg = new proto.apollo.common.SpeedPoint();
+  obj.s != null && jspb.Message.setField(msg, 1, obj.s);
+  obj.t != null && jspb.Message.setField(msg, 2, obj.t);
+  obj.v != null && jspb.Message.setField(msg, 3, obj.v);
+  obj.a != null && jspb.Message.setField(msg, 4, obj.a);
+  obj.da != null && jspb.Message.setField(msg, 5, obj.da);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

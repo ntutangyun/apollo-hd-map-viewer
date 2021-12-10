@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -81,6 +82,38 @@ proto.apollo.common.Point3D.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Point3D as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.Point3D.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.x;
+
+  /** @type {?|undefined} */
+  this.y;
+
+  /** @type {?|undefined} */
+  this.z;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.Point3D.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.Point3D}
+ */
+proto.apollo.common.Point3D.fromObject = function(obj) {
+  var msg = new proto.apollo.common.Point3D();
+  obj.x != null && jspb.Message.setField(msg, 1, obj.x);
+  obj.y != null && jspb.Message.setField(msg, 2, obj.y);
+  obj.z != null && jspb.Message.setField(msg, 3, obj.z);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

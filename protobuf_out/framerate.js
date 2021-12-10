@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,42 @@ proto.apollo.hdmap.FrameRate.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of FrameRate as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.FrameRate.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.topic;
+
+  /** @type {?|undefined} */
+  this.expectedRate;
+
+  /** @type {?|undefined} */
+  this.currentRate;
+
+  /** @type {?|undefined} */
+  this.badRecordNameList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.FrameRate.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.FrameRate}
+ */
+proto.apollo.hdmap.FrameRate.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.FrameRate();
+  obj.topic != null && jspb.Message.setField(msg, 1, obj.topic);
+  obj.expectedRate != null && jspb.Message.setField(msg, 2, obj.expectedRate);
+  obj.currentRate != null && jspb.Message.setField(msg, 3, obj.currentRate);
+  obj.badRecordNameList != null && jspb.Message.setField(msg, 4, obj.badRecordNameList);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

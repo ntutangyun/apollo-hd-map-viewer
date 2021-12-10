@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "../node_modules/babel-loader/lib/index.js?!../node_modules/eslint-loader/dist/cjs.js!./utils/webworker.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "../node_modules/babel-loader/lib/index.js?!./utils/webworker.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1257,10 +1257,10 @@ utf8.write = function utf8_write(string, buffer, offset) {
 
 /***/ }),
 
-/***/ "../node_modules/babel-loader/lib/index.js?!../node_modules/eslint-loader/dist/cjs.js!./utils/webworker.js":
-/*!******************************************************************************************************************!*\
-  !*** ../node_modules/babel-loader/lib??ref--15-1!../node_modules/eslint-loader/dist/cjs.js!./utils/webworker.js ***!
-  \******************************************************************************************************************/
+/***/ "../node_modules/babel-loader/lib/index.js?!./utils/webworker.js":
+/*!************************************************************************!*\
+  !*** ../node_modules/babel-loader/lib??ref--14-1!./utils/webworker.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

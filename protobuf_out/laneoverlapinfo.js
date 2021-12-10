@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -83,6 +84,43 @@ proto.apollo.hdmap.LaneOverlapInfo.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LaneOverlapInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.LaneOverlapInfo.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.startS;
+
+  /** @type {?|undefined} */
+  this.endS;
+
+  /** @type {?|undefined} */
+  this.isMerge;
+
+  /** @type {?|undefined} */
+  this.regionOverlapId;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.LaneOverlapInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.LaneOverlapInfo}
+ */
+proto.apollo.hdmap.LaneOverlapInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.LaneOverlapInfo();
+  obj.startS != null && jspb.Message.setField(msg, 1, obj.startS);
+  obj.endS != null && jspb.Message.setField(msg, 2, obj.endS);
+  obj.isMerge != null && jspb.Message.setField(msg, 3, obj.isMerge);
+  obj.regionOverlapId && jspb.Message.setWrapperField(
+      msg, 4, proto.apollo.hdmap.Id.fromObject(obj.regionOverlapId));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

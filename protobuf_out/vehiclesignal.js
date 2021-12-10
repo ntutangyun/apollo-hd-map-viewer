@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -84,6 +85,46 @@ proto.apollo.common.VehicleSignal.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleSignal as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleSignal.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.turnSignal;
+
+  /** @type {?|undefined} */
+  this.highBeam;
+
+  /** @type {?|undefined} */
+  this.lowBeam;
+
+  /** @type {?|undefined} */
+  this.horn;
+
+  /** @type {?|undefined} */
+  this.emergencyLight;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleSignal.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleSignal}
+ */
+proto.apollo.common.VehicleSignal.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleSignal();
+  obj.turnSignal != null && jspb.Message.setField(msg, 1, obj.turnSignal);
+  obj.highBeam != null && jspb.Message.setField(msg, 2, obj.highBeam);
+  obj.lowBeam != null && jspb.Message.setField(msg, 3, obj.lowBeam);
+  obj.horn != null && jspb.Message.setField(msg, 4, obj.horn);
+  obj.emergencyLight != null && jspb.Message.setField(msg, 5, obj.emergencyLight);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

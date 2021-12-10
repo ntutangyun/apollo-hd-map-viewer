@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -91,6 +92,41 @@ proto.apollo.common.LatencyRecordMap.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LatencyRecordMap as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.LatencyRecordMap.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.moduleName;
+
+  /** @type {?|undefined} */
+  this.latencyRecordsList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.LatencyRecordMap.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.LatencyRecordMap}
+ */
+proto.apollo.common.LatencyRecordMap.fromObject = function(obj) {
+  var msg = new proto.apollo.common.LatencyRecordMap();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.moduleName != null && jspb.Message.setField(msg, 2, obj.moduleName);
+  obj.latencyRecordsList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.latencyRecordsList.map(
+          proto.apollo.common.LatencyRecord.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -82,6 +83,35 @@ proto.apollo.hdmap.BoundaryEdge.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of BoundaryEdge as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.BoundaryEdge.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.curve;
+
+  /** @type {?|undefined} */
+  this.type;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.BoundaryEdge.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.BoundaryEdge}
+ */
+proto.apollo.hdmap.BoundaryEdge.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.BoundaryEdge();
+  obj.curve && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Curve.fromObject(obj.curve));
+  obj.type != null && jspb.Message.setField(msg, 2, obj.type);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

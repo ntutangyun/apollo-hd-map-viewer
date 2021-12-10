@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -111,6 +112,48 @@ proto.apollo.hdmap.CurveSegment.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of CurveSegment as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.CurveSegment.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.lineSegment;
+
+  /** @type {?|undefined} */
+  this.s;
+
+  /** @type {?|undefined} */
+  this.startPosition;
+
+  /** @type {?|undefined} */
+  this.heading;
+
+  /** @type {?|undefined} */
+  this.length;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.CurveSegment.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.CurveSegment}
+ */
+proto.apollo.hdmap.CurveSegment.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.CurveSegment();
+  obj.lineSegment && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.LineSegment.fromObject(obj.lineSegment));
+  obj.s != null && jspb.Message.setField(msg, 6, obj.s);
+  obj.startPosition && jspb.Message.setWrapperField(
+      msg, 7, proto.apollo.common.PointENU.fromObject(obj.startPosition));
+  obj.heading != null && jspb.Message.setField(msg, 8, obj.heading);
+  obj.length != null && jspb.Message.setField(msg, 9, obj.length);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

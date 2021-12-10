@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -88,6 +89,32 @@ proto.apollo.hdmap.LineSegment.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LineSegment as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.LineSegment.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.pointList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.LineSegment.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.LineSegment}
+ */
+proto.apollo.hdmap.LineSegment.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.LineSegment();
+  obj.pointList && jspb.Message.setRepeatedWrapperField(
+      msg, 1, obj.pointList.map(
+          proto.apollo.common.PointENU.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

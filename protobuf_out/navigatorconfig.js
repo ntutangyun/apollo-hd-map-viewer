@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -81,6 +82,35 @@ proto.apollo.relative_map.NavigatorConfig.toObject = function(includeInstance, m
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of NavigatorConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.relative_map.NavigatorConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.enableNavigatorDownsample;
+
+  /** @type {?|undefined} */
+  this.sampleParam;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.relative_map.NavigatorConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.relative_map.NavigatorConfig}
+ */
+proto.apollo.relative_map.NavigatorConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.relative_map.NavigatorConfig();
+  obj.enableNavigatorDownsample != null && jspb.Message.setField(msg, 1, obj.enableNavigatorDownsample);
+  obj.sampleParam && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.relative_map.SampleParam.fromObject(obj.sampleParam));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

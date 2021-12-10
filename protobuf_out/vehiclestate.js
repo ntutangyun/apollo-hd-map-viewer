@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -97,6 +98,91 @@ proto.apollo.common.VehicleState.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleState as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleState.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.x;
+
+  /** @type {?|undefined} */
+  this.y;
+
+  /** @type {?|undefined} */
+  this.z;
+
+  /** @type {?|undefined} */
+  this.timestamp;
+
+  /** @type {?|undefined} */
+  this.roll;
+
+  /** @type {?|undefined} */
+  this.pitch;
+
+  /** @type {?|undefined} */
+  this.yaw;
+
+  /** @type {?|undefined} */
+  this.heading;
+
+  /** @type {?|undefined} */
+  this.kappa;
+
+  /** @type {?|undefined} */
+  this.linearVelocity;
+
+  /** @type {?|undefined} */
+  this.angularVelocity;
+
+  /** @type {?|undefined} */
+  this.linearAcceleration;
+
+  /** @type {?|undefined} */
+  this.gear;
+
+  /** @type {?|undefined} */
+  this.drivingMode;
+
+  /** @type {?|undefined} */
+  this.pose;
+
+  /** @type {?|undefined} */
+  this.steeringPercentage;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleState.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleState}
+ */
+proto.apollo.common.VehicleState.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleState();
+  obj.x != null && jspb.Message.setField(msg, 1, obj.x);
+  obj.y != null && jspb.Message.setField(msg, 2, obj.y);
+  obj.z != null && jspb.Message.setField(msg, 3, obj.z);
+  obj.timestamp != null && jspb.Message.setField(msg, 4, obj.timestamp);
+  obj.roll != null && jspb.Message.setField(msg, 5, obj.roll);
+  obj.pitch != null && jspb.Message.setField(msg, 6, obj.pitch);
+  obj.yaw != null && jspb.Message.setField(msg, 7, obj.yaw);
+  obj.heading != null && jspb.Message.setField(msg, 8, obj.heading);
+  obj.kappa != null && jspb.Message.setField(msg, 9, obj.kappa);
+  obj.linearVelocity != null && jspb.Message.setField(msg, 10, obj.linearVelocity);
+  obj.angularVelocity != null && jspb.Message.setField(msg, 11, obj.angularVelocity);
+  obj.linearAcceleration != null && jspb.Message.setField(msg, 12, obj.linearAcceleration);
+  obj.gear != null && jspb.Message.setField(msg, 13, obj.gear);
+  obj.drivingMode != null && jspb.Message.setField(msg, 14, obj.drivingMode);
+  obj.pose && jspb.Message.setWrapperField(
+      msg, 15, proto.apollo.localization.Pose.fromObject(obj.pose));
+  obj.steeringPercentage != null && jspb.Message.setField(msg, 16, obj.steeringPercentage);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

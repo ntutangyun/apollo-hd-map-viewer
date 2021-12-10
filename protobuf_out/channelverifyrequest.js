@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -82,6 +83,38 @@ proto.apollo.hdmap.ChannelVerifyRequest.toObject = function(includeInstance, msg
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of ChannelVerifyRequest as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.ChannelVerifyRequest.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.cmd;
+
+  /** @type {?|undefined} */
+  this.collectId;
+
+  /** @type {?|undefined} */
+  this.path;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.ChannelVerifyRequest.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.ChannelVerifyRequest}
+ */
+proto.apollo.hdmap.ChannelVerifyRequest.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.ChannelVerifyRequest();
+  obj.cmd != null && jspb.Message.setField(msg, 1, obj.cmd);
+  obj.collectId != null && jspb.Message.setField(msg, 2, obj.collectId);
+  obj.path != null && jspb.Message.setField(msg, 3, obj.path);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

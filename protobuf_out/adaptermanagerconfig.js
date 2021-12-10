@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,36 @@ proto.apollo.common.adapter.AdapterManagerConfig.toObject = function(includeInst
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of AdapterManagerConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.adapter.AdapterManagerConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.configList;
+
+  /** @type {?|undefined} */
+  this.isRos;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.adapter.AdapterManagerConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.adapter.AdapterManagerConfig}
+ */
+proto.apollo.common.adapter.AdapterManagerConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.common.adapter.AdapterManagerConfig();
+  obj.configList && jspb.Message.setRepeatedWrapperField(
+      msg, 1, obj.configList.map(
+          proto.apollo.common.adapter.AdapterConfig.fromObject));
+  obj.isRos != null && jspb.Message.setField(msg, 2, obj.isRos);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

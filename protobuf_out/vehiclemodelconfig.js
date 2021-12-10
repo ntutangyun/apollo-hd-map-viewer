@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -86,6 +87,45 @@ proto.apollo.common.VehicleModelConfig.toObject = function(includeInstance, msg)
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleModelConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleModelConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.modelType;
+
+  /** @type {?|undefined} */
+  this.rcKinematicBicycleModel;
+
+  /** @type {?|undefined} */
+  this.comcDynamicBicycleModel;
+
+  /** @type {?|undefined} */
+  this.mlpModel;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleModelConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleModelConfig}
+ */
+proto.apollo.common.VehicleModelConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleModelConfig();
+  obj.modelType != null && jspb.Message.setField(msg, 1, obj.modelType);
+  obj.rcKinematicBicycleModel && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.common.RearCenteredKinematicBicycleModelConfig.fromObject(obj.rcKinematicBicycleModel));
+  obj.comcDynamicBicycleModel && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.common.ComCenteredDynamicBicycleModelConfig.fromObject(obj.comcDynamicBicycleModel));
+  obj.mlpModel && jspb.Message.setWrapperField(
+      msg, 4, proto.apollo.common.MlpModelConfig.fromObject(obj.mlpModel));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

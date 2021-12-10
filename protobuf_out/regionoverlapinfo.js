@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -90,6 +91,37 @@ proto.apollo.hdmap.RegionOverlapInfo.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of RegionOverlapInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.RegionOverlapInfo.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.polygonList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.RegionOverlapInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.RegionOverlapInfo}
+ */
+proto.apollo.hdmap.RegionOverlapInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.RegionOverlapInfo();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.polygonList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.polygonList.map(
+          proto.apollo.hdmap.Polygon.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

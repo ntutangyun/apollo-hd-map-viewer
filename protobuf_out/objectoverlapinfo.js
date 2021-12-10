@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -138,6 +139,86 @@ proto.apollo.hdmap.ObjectOverlapInfo.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of ObjectOverlapInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.ObjectOverlapInfo.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.laneOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.signalOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.stopSignOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.crosswalkOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.junctionOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.yieldSignOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.clearAreaOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.speedBumpOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.parkingSpaceOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.pncJunctionOverlapInfo;
+
+  /** @type {?|undefined} */
+  this.rsuOverlapInfo;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.ObjectOverlapInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.ObjectOverlapInfo}
+ */
+proto.apollo.hdmap.ObjectOverlapInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.ObjectOverlapInfo();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.laneOverlapInfo && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.hdmap.LaneOverlapInfo.fromObject(obj.laneOverlapInfo));
+  obj.signalOverlapInfo && jspb.Message.setWrapperField(
+      msg, 4, proto.apollo.hdmap.SignalOverlapInfo.fromObject(obj.signalOverlapInfo));
+  obj.stopSignOverlapInfo && jspb.Message.setWrapperField(
+      msg, 5, proto.apollo.hdmap.StopSignOverlapInfo.fromObject(obj.stopSignOverlapInfo));
+  obj.crosswalkOverlapInfo && jspb.Message.setWrapperField(
+      msg, 6, proto.apollo.hdmap.CrosswalkOverlapInfo.fromObject(obj.crosswalkOverlapInfo));
+  obj.junctionOverlapInfo && jspb.Message.setWrapperField(
+      msg, 7, proto.apollo.hdmap.JunctionOverlapInfo.fromObject(obj.junctionOverlapInfo));
+  obj.yieldSignOverlapInfo && jspb.Message.setWrapperField(
+      msg, 8, proto.apollo.hdmap.YieldOverlapInfo.fromObject(obj.yieldSignOverlapInfo));
+  obj.clearAreaOverlapInfo && jspb.Message.setWrapperField(
+      msg, 9, proto.apollo.hdmap.ClearAreaOverlapInfo.fromObject(obj.clearAreaOverlapInfo));
+  obj.speedBumpOverlapInfo && jspb.Message.setWrapperField(
+      msg, 10, proto.apollo.hdmap.SpeedBumpOverlapInfo.fromObject(obj.speedBumpOverlapInfo));
+  obj.parkingSpaceOverlapInfo && jspb.Message.setWrapperField(
+      msg, 11, proto.apollo.hdmap.ParkingSpaceOverlapInfo.fromObject(obj.parkingSpaceOverlapInfo));
+  obj.pncJunctionOverlapInfo && jspb.Message.setWrapperField(
+      msg, 12, proto.apollo.hdmap.PNCJunctionOverlapInfo.fromObject(obj.pncJunctionOverlapInfo));
+  obj.rsuOverlapInfo && jspb.Message.setWrapperField(
+      msg, 13, proto.apollo.hdmap.RSUOverlapInfo.fromObject(obj.rsuOverlapInfo));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

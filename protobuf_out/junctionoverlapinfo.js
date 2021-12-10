@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -79,6 +80,27 @@ proto.apollo.hdmap.JunctionOverlapInfo.toObject = function(includeInstance, msg)
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of JunctionOverlapInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.JunctionOverlapInfo.ObjectFormat = function() {
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.JunctionOverlapInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.JunctionOverlapInfo}
+ */
+proto.apollo.hdmap.JunctionOverlapInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.JunctionOverlapInfo();
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

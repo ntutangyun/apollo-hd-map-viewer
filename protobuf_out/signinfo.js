@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -80,6 +81,30 @@ proto.apollo.hdmap.SignInfo.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of SignInfo as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.SignInfo.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.type;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.SignInfo.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.SignInfo}
+ */
+proto.apollo.hdmap.SignInfo.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.SignInfo();
+  obj.type != null && jspb.Message.setField(msg, 1, obj.type);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

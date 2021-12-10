@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -81,6 +82,38 @@ proto.apollo.common.PointLLH.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of PointLLH as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.PointLLH.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.lon;
+
+  /** @type {?|undefined} */
+  this.lat;
+
+  /** @type {?|undefined} */
+  this.height;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.PointLLH.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.PointLLH}
+ */
+proto.apollo.common.PointLLH.fromObject = function(obj) {
+  var msg = new proto.apollo.common.PointLLH();
+  obj.lon != null && jspb.Message.setField(msg, 1, obj.lon);
+  obj.lat != null && jspb.Message.setField(msg, 2, obj.lat);
+  obj.height != null && jspb.Message.setField(msg, 3, obj.height);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

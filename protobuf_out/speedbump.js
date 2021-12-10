@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -92,6 +93,43 @@ proto.apollo.hdmap.SpeedBump.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of SpeedBump as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.SpeedBump.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.overlapIdList;
+
+  /** @type {?|undefined} */
+  this.positionList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.SpeedBump.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.SpeedBump}
+ */
+proto.apollo.hdmap.SpeedBump.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.SpeedBump();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.overlapIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.overlapIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.positionList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.positionList.map(
+          proto.apollo.hdmap.Curve.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

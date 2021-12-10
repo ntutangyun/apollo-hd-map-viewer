@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -82,6 +83,42 @@ proto.apollo.common.Quaternion.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Quaternion as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.Quaternion.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.qx;
+
+  /** @type {?|undefined} */
+  this.qy;
+
+  /** @type {?|undefined} */
+  this.qz;
+
+  /** @type {?|undefined} */
+  this.qw;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.Quaternion.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.Quaternion}
+ */
+proto.apollo.common.Quaternion.fromObject = function(obj) {
+  var msg = new proto.apollo.common.Quaternion();
+  obj.qx != null && jspb.Message.setField(msg, 1, obj.qx);
+  obj.qy != null && jspb.Message.setField(msg, 2, obj.qy);
+  obj.qz != null && jspb.Message.setField(msg, 3, obj.qz);
+  obj.qw != null && jspb.Message.setField(msg, 4, obj.qw);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

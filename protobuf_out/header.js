@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -91,6 +92,75 @@ proto.apollo.hdmap.Header.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Header as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Header.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.version;
+
+  /** @type {?|undefined} */
+  this.date;
+
+  /** @type {?|undefined} */
+  this.projection;
+
+  /** @type {?|undefined} */
+  this.district;
+
+  /** @type {?|undefined} */
+  this.generation;
+
+  /** @type {?|undefined} */
+  this.revMajor;
+
+  /** @type {?|undefined} */
+  this.revMinor;
+
+  /** @type {?|undefined} */
+  this.left;
+
+  /** @type {?|undefined} */
+  this.top;
+
+  /** @type {?|undefined} */
+  this.right;
+
+  /** @type {?|undefined} */
+  this.bottom;
+
+  /** @type {?|undefined} */
+  this.vendor;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Header.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Header}
+ */
+proto.apollo.hdmap.Header.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Header();
+  obj.version != null && jspb.Message.setField(msg, 1, obj.version);
+  obj.date != null && jspb.Message.setField(msg, 2, obj.date);
+  obj.projection && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.hdmap.Projection.fromObject(obj.projection));
+  obj.district != null && jspb.Message.setField(msg, 4, obj.district);
+  obj.generation != null && jspb.Message.setField(msg, 5, obj.generation);
+  obj.revMajor != null && jspb.Message.setField(msg, 6, obj.revMajor);
+  obj.revMinor != null && jspb.Message.setField(msg, 7, obj.revMinor);
+  obj.left != null && jspb.Message.setField(msg, 8, obj.left);
+  obj.top != null && jspb.Message.setField(msg, 9, obj.top);
+  obj.right != null && jspb.Message.setField(msg, 10, obj.right);
+  obj.bottom != null && jspb.Message.setField(msg, 11, obj.bottom);
+  obj.vendor != null && jspb.Message.setField(msg, 12, obj.vendor);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

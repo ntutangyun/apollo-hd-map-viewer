@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -84,6 +85,41 @@ proto.apollo.common.VehicleConfig.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.vehicleParam;
+
+  /** @type {?|undefined} */
+  this.extrinsics;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleConfig}
+ */
+proto.apollo.common.VehicleConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleConfig();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.vehicleParam && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.common.VehicleParam.fromObject(obj.vehicleParam));
+  obj.extrinsics && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.common.Extrinsics.fromObject(obj.extrinsics));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

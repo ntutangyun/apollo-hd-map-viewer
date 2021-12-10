@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -80,6 +81,30 @@ proto.apollo.hdmap.StaticAlignRequest.toObject = function(includeInstance, msg) 
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of StaticAlignRequest as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.StaticAlignRequest.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.cmd;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.StaticAlignRequest.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.StaticAlignRequest}
+ */
+proto.apollo.hdmap.StaticAlignRequest.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.StaticAlignRequest();
+  obj.cmd != null && jspb.Message.setField(msg, 1, obj.cmd);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

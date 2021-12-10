@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -85,6 +86,54 @@ proto.apollo.relative_map.SampleParam.toObject = function(includeInstance, msg) 
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of SampleParam as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.relative_map.SampleParam.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.straightSampleInterval;
+
+  /** @type {?|undefined} */
+  this.smallKappaSampleInterval;
+
+  /** @type {?|undefined} */
+  this.middleKappaSampleInterval;
+
+  /** @type {?|undefined} */
+  this.largeKappaSampleInterval;
+
+  /** @type {?|undefined} */
+  this.smallKappa;
+
+  /** @type {?|undefined} */
+  this.middleKappa;
+
+  /** @type {?|undefined} */
+  this.largeKappa;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.relative_map.SampleParam.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.relative_map.SampleParam}
+ */
+proto.apollo.relative_map.SampleParam.fromObject = function(obj) {
+  var msg = new proto.apollo.relative_map.SampleParam();
+  obj.straightSampleInterval != null && jspb.Message.setField(msg, 1, obj.straightSampleInterval);
+  obj.smallKappaSampleInterval != null && jspb.Message.setField(msg, 2, obj.smallKappaSampleInterval);
+  obj.middleKappaSampleInterval != null && jspb.Message.setField(msg, 3, obj.middleKappaSampleInterval);
+  obj.largeKappaSampleInterval != null && jspb.Message.setField(msg, 4, obj.largeKappaSampleInterval);
+  obj.smallKappa != null && jspb.Message.setField(msg, 5, obj.smallKappa);
+  obj.middleKappa != null && jspb.Message.setField(msg, 6, obj.middleKappa);
+  obj.largeKappa != null && jspb.Message.setField(msg, 7, obj.largeKappa);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

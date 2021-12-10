@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,36 @@ proto.apollo.common.VehicleMotion.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleMotion as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleMotion.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.name;
+
+  /** @type {?|undefined} */
+  this.vehicleMotionPointList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleMotion.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleMotion}
+ */
+proto.apollo.common.VehicleMotion.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleMotion();
+  obj.name != null && jspb.Message.setField(msg, 1, obj.name);
+  obj.vehicleMotionPointList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.vehicleMotionPointList.map(
+          proto.apollo.common.VehicleMotionPoint.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

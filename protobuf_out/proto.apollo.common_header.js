@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -88,6 +89,63 @@ proto.apollo.common.Header.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Header as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.Header.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.timestampSec;
+
+  /** @type {?|undefined} */
+  this.moduleName;
+
+  /** @type {?|undefined} */
+  this.sequenceNum;
+
+  /** @type {?|undefined} */
+  this.lidarTimestamp;
+
+  /** @type {?|undefined} */
+  this.cameraTimestamp;
+
+  /** @type {?|undefined} */
+  this.radarTimestamp;
+
+  /** @type {?|undefined} */
+  this.version;
+
+  /** @type {?|undefined} */
+  this.status;
+
+  /** @type {?|undefined} */
+  this.frameId;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.Header.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.Header}
+ */
+proto.apollo.common.Header.fromObject = function(obj) {
+  var msg = new proto.apollo.common.Header();
+  obj.timestampSec != null && jspb.Message.setField(msg, 1, obj.timestampSec);
+  obj.moduleName != null && jspb.Message.setField(msg, 2, obj.moduleName);
+  obj.sequenceNum != null && jspb.Message.setField(msg, 3, obj.sequenceNum);
+  obj.lidarTimestamp != null && jspb.Message.setField(msg, 4, obj.lidarTimestamp);
+  obj.cameraTimestamp != null && jspb.Message.setField(msg, 5, obj.cameraTimestamp);
+  obj.radarTimestamp != null && jspb.Message.setField(msg, 6, obj.radarTimestamp);
+  obj.version != null && jspb.Message.setField(msg, 7, obj.version);
+  obj.status && jspb.Message.setWrapperField(
+      msg, 8, proto.apollo.common.StatusPb.fromObject(obj.status));
+  obj.frameId != null && jspb.Message.setField(msg, 9, obj.frameId);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

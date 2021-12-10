@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -97,6 +98,59 @@ proto.apollo.hdmap.Passage.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Passage as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Passage.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.signalIdList;
+
+  /** @type {?|undefined} */
+  this.yieldIdList;
+
+  /** @type {?|undefined} */
+  this.stopSignIdList;
+
+  /** @type {?|undefined} */
+  this.laneIdList;
+
+  /** @type {?|undefined} */
+  this.type;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Passage.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Passage}
+ */
+proto.apollo.hdmap.Passage.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Passage();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.signalIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.signalIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.yieldIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.yieldIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.stopSignIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 4, obj.stopSignIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.laneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 5, obj.laneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.type != null && jspb.Message.setField(msg, 6, obj.type);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

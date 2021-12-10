@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -87,6 +88,56 @@ proto.apollo.common.TrajectoryPoint.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of TrajectoryPoint as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.TrajectoryPoint.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.pathPoint;
+
+  /** @type {?|undefined} */
+  this.v;
+
+  /** @type {?|undefined} */
+  this.a;
+
+  /** @type {?|undefined} */
+  this.relativeTime;
+
+  /** @type {?|undefined} */
+  this.da;
+
+  /** @type {?|undefined} */
+  this.steer;
+
+  /** @type {?|undefined} */
+  this.gaussianInfo;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.TrajectoryPoint.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.TrajectoryPoint}
+ */
+proto.apollo.common.TrajectoryPoint.fromObject = function(obj) {
+  var msg = new proto.apollo.common.TrajectoryPoint();
+  obj.pathPoint && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.PathPoint.fromObject(obj.pathPoint));
+  obj.v != null && jspb.Message.setField(msg, 2, obj.v);
+  obj.a != null && jspb.Message.setField(msg, 3, obj.a);
+  obj.relativeTime != null && jspb.Message.setField(msg, 4, obj.relativeTime);
+  obj.da != null && jspb.Message.setField(msg, 5, obj.da);
+  obj.steer != null && jspb.Message.setField(msg, 6, obj.steer);
+  obj.gaussianInfo && jspb.Message.setWrapperField(
+      msg, 7, proto.apollo.common.GaussianInfo.fromObject(obj.gaussianInfo));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

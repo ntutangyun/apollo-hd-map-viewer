@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,36 @@ proto.apollo.common.Trajectory.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Trajectory as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.Trajectory.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.name;
+
+  /** @type {?|undefined} */
+  this.trajectoryPointList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.Trajectory.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.Trajectory}
+ */
+proto.apollo.common.Trajectory.fromObject = function(obj) {
+  var msg = new proto.apollo.common.Trajectory();
+  obj.name != null && jspb.Message.setField(msg, 1, obj.name);
+  obj.trajectoryPointList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.trajectoryPointList.map(
+          proto.apollo.common.TrajectoryPoint.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

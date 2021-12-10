@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -126,6 +127,143 @@ proto.apollo.hdmap.Lane.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Lane as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Lane.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.centralCurve;
+
+  /** @type {?|undefined} */
+  this.leftBoundary;
+
+  /** @type {?|undefined} */
+  this.rightBoundary;
+
+  /** @type {?|undefined} */
+  this.length;
+
+  /** @type {?|undefined} */
+  this.speedLimit;
+
+  /** @type {?|undefined} */
+  this.overlapIdList;
+
+  /** @type {?|undefined} */
+  this.predecessorIdList;
+
+  /** @type {?|undefined} */
+  this.successorIdList;
+
+  /** @type {?|undefined} */
+  this.leftNeighborForwardLaneIdList;
+
+  /** @type {?|undefined} */
+  this.rightNeighborForwardLaneIdList;
+
+  /** @type {?|undefined} */
+  this.type;
+
+  /** @type {?|undefined} */
+  this.turn;
+
+  /** @type {?|undefined} */
+  this.leftNeighborReverseLaneIdList;
+
+  /** @type {?|undefined} */
+  this.rightNeighborReverseLaneIdList;
+
+  /** @type {?|undefined} */
+  this.junctionId;
+
+  /** @type {?|undefined} */
+  this.leftSampleList;
+
+  /** @type {?|undefined} */
+  this.rightSampleList;
+
+  /** @type {?|undefined} */
+  this.direction;
+
+  /** @type {?|undefined} */
+  this.leftRoadSampleList;
+
+  /** @type {?|undefined} */
+  this.rightRoadSampleList;
+
+  /** @type {?|undefined} */
+  this.selfReverseLaneIdList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Lane.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Lane}
+ */
+proto.apollo.hdmap.Lane.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Lane();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.centralCurve && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.hdmap.Curve.fromObject(obj.centralCurve));
+  obj.leftBoundary && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.hdmap.LaneBoundary.fromObject(obj.leftBoundary));
+  obj.rightBoundary && jspb.Message.setWrapperField(
+      msg, 4, proto.apollo.hdmap.LaneBoundary.fromObject(obj.rightBoundary));
+  obj.length != null && jspb.Message.setField(msg, 5, obj.length);
+  obj.speedLimit != null && jspb.Message.setField(msg, 6, obj.speedLimit);
+  obj.overlapIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 7, obj.overlapIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.predecessorIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 8, obj.predecessorIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.successorIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 9, obj.successorIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.leftNeighborForwardLaneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 10, obj.leftNeighborForwardLaneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.rightNeighborForwardLaneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 11, obj.rightNeighborForwardLaneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.type != null && jspb.Message.setField(msg, 12, obj.type);
+  obj.turn != null && jspb.Message.setField(msg, 13, obj.turn);
+  obj.leftNeighborReverseLaneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 14, obj.leftNeighborReverseLaneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.rightNeighborReverseLaneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 15, obj.rightNeighborReverseLaneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.junctionId && jspb.Message.setWrapperField(
+      msg, 16, proto.apollo.hdmap.Id.fromObject(obj.junctionId));
+  obj.leftSampleList && jspb.Message.setRepeatedWrapperField(
+      msg, 17, obj.leftSampleList.map(
+          proto.apollo.hdmap.LaneSampleAssociation.fromObject));
+  obj.rightSampleList && jspb.Message.setRepeatedWrapperField(
+      msg, 18, obj.rightSampleList.map(
+          proto.apollo.hdmap.LaneSampleAssociation.fromObject));
+  obj.direction != null && jspb.Message.setField(msg, 19, obj.direction);
+  obj.leftRoadSampleList && jspb.Message.setRepeatedWrapperField(
+      msg, 20, obj.leftRoadSampleList.map(
+          proto.apollo.hdmap.LaneSampleAssociation.fromObject));
+  obj.rightRoadSampleList && jspb.Message.setRepeatedWrapperField(
+      msg, 21, obj.rightRoadSampleList.map(
+          proto.apollo.hdmap.LaneSampleAssociation.fromObject));
+  obj.selfReverseLaneIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 22, obj.selfReverseLaneIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

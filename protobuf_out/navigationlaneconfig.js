@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -90,6 +91,70 @@ proto.apollo.relative_map.NavigationLaneConfig.toObject = function(includeInstan
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of NavigationLaneConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.relative_map.NavigationLaneConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.minLaneMarkerQuality;
+
+  /** @type {?|undefined} */
+  this.laneSource;
+
+  /** @type {?|undefined} */
+  this.maxLenFromNavigationLine;
+
+  /** @type {?|undefined} */
+  this.minLenForNavigationLane;
+
+  /** @type {?|undefined} */
+  this.maxLenForNavigationLane;
+
+  /** @type {?|undefined} */
+  this.ratioNavigationLaneLenToSpeed;
+
+  /** @type {?|undefined} */
+  this.maxDistanceToNavigationLine;
+
+  /** @type {?|undefined} */
+  this.minViewRangeToUseLaneMarker;
+
+  /** @type {?|undefined} */
+  this.minLaneHalfWidth;
+
+  /** @type {?|undefined} */
+  this.maxLaneHalfWidth;
+
+  /** @type {?|undefined} */
+  this.laneMarkerWeight;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.relative_map.NavigationLaneConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.relative_map.NavigationLaneConfig}
+ */
+proto.apollo.relative_map.NavigationLaneConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.relative_map.NavigationLaneConfig();
+  obj.minLaneMarkerQuality != null && jspb.Message.setField(msg, 1, obj.minLaneMarkerQuality);
+  obj.laneSource != null && jspb.Message.setField(msg, 2, obj.laneSource);
+  obj.maxLenFromNavigationLine != null && jspb.Message.setField(msg, 3, obj.maxLenFromNavigationLine);
+  obj.minLenForNavigationLane != null && jspb.Message.setField(msg, 4, obj.minLenForNavigationLane);
+  obj.maxLenForNavigationLane != null && jspb.Message.setField(msg, 5, obj.maxLenForNavigationLane);
+  obj.ratioNavigationLaneLenToSpeed != null && jspb.Message.setField(msg, 6, obj.ratioNavigationLaneLenToSpeed);
+  obj.maxDistanceToNavigationLine != null && jspb.Message.setField(msg, 7, obj.maxDistanceToNavigationLine);
+  obj.minViewRangeToUseLaneMarker != null && jspb.Message.setField(msg, 8, obj.minViewRangeToUseLaneMarker);
+  obj.minLaneHalfWidth != null && jspb.Message.setField(msg, 9, obj.minLaneHalfWidth);
+  obj.maxLaneHalfWidth != null && jspb.Message.setField(msg, 10, obj.maxLaneHalfWidth);
+  obj.laneMarkerWeight != null && jspb.Message.setField(msg, 11, obj.laneMarkerWeight);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -110,6 +111,32 @@ proto.apollo.common.LatencyTrack.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LatencyTrack as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.LatencyTrack.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.latencyTrackList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.LatencyTrack.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.LatencyTrack}
+ */
+proto.apollo.common.LatencyTrack.fromObject = function(obj) {
+  var msg = new proto.apollo.common.LatencyTrack();
+  obj.latencyTrackList && jspb.Message.setRepeatedWrapperField(
+      msg, 1, obj.latencyTrackList.map(
+          proto.apollo.common.LatencyTrack.LatencyTrackMessage.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
@@ -225,6 +252,35 @@ proto.apollo.common.LatencyTrack.LatencyTrackMessage.toObject = function(include
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LatencyTrackMessage as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.LatencyTrack.LatencyTrackMessage.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.latencyName;
+
+  /** @type {?|undefined} */
+  this.latencyStat;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.LatencyTrack.LatencyTrackMessage.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.LatencyTrack.LatencyTrackMessage}
+ */
+proto.apollo.common.LatencyTrack.LatencyTrackMessage.fromObject = function(obj) {
+  var msg = new proto.apollo.common.LatencyTrack.LatencyTrackMessage();
+  obj.latencyName != null && jspb.Message.setField(msg, 1, obj.latencyName);
+  obj.latencyStat && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.common.LatencyStat.fromObject(obj.latencyStat));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

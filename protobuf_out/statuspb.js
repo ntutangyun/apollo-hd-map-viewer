@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -81,6 +82,34 @@ proto.apollo.common.StatusPb.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of StatusPb as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.StatusPb.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.errorCode;
+
+  /** @type {?|undefined} */
+  this.msg;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.StatusPb.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.StatusPb}
+ */
+proto.apollo.common.StatusPb.fromObject = function(obj) {
+  var msg = new proto.apollo.common.StatusPb();
+  obj.errorCode != null && jspb.Message.setField(msg, 1, obj.errorCode);
+  obj.msg != null && jspb.Message.setField(msg, 2, obj.msg);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

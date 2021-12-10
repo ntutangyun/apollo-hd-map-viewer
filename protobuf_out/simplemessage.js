@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -82,6 +83,39 @@ proto.apollo.common.util.test.SimpleMessage.toObject = function(includeInstance,
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of SimpleMessage as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.util.test.SimpleMessage.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.integer;
+
+  /** @type {?|undefined} */
+  this.text;
+
+  /** @type {?|undefined} */
+  this.header;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.util.test.SimpleMessage.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.util.test.SimpleMessage}
+ */
+proto.apollo.common.util.test.SimpleMessage.fromObject = function(obj) {
+  var msg = new proto.apollo.common.util.test.SimpleMessage();
+  obj.integer != null && jspb.Message.setField(msg, 1, obj.integer);
+  obj.text != null && jspb.Message.setField(msg, 2, obj.text);
+  obj.header && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.common.Header.fromObject(obj.header));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

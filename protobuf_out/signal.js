@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -102,6 +103,64 @@ proto.apollo.hdmap.Signal.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Signal as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Signal.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.boundary;
+
+  /** @type {?|undefined} */
+  this.subsignalList;
+
+  /** @type {?|undefined} */
+  this.overlapIdList;
+
+  /** @type {?|undefined} */
+  this.type;
+
+  /** @type {?|undefined} */
+  this.stopLineList;
+
+  /** @type {?|undefined} */
+  this.signInfoList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Signal.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Signal}
+ */
+proto.apollo.hdmap.Signal.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Signal();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.boundary && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.hdmap.Polygon.fromObject(obj.boundary));
+  obj.subsignalList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.subsignalList.map(
+          proto.apollo.hdmap.Subsignal.fromObject));
+  obj.overlapIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 4, obj.overlapIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.type != null && jspb.Message.setField(msg, 5, obj.type);
+  obj.stopLineList && jspb.Message.setRepeatedWrapperField(
+      msg, 6, obj.stopLineList.map(
+          proto.apollo.hdmap.Curve.fromObject));
+  obj.signInfoList && jspb.Message.setRepeatedWrapperField(
+      msg, 7, obj.signInfoList.map(
+          proto.apollo.hdmap.SignInfo.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

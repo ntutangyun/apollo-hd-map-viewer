@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,51 @@ proto.apollo.relative_map.MapMsg.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of MapMsg as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.relative_map.MapMsg.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.hdmap;
+
+  /** @type {?|undefined} */
+  this.navigationPathMap;
+
+  /** @type {?|undefined} */
+  this.laneMarker;
+
+  /** @type {?|undefined} */
+  this.localization;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.relative_map.MapMsg.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.relative_map.MapMsg}
+ */
+proto.apollo.relative_map.MapMsg.fromObject = function(obj) {
+  var msg = new proto.apollo.relative_map.MapMsg();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.hdmap && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.hdmap.Map.fromObject(obj.hdmap));
+  obj.navigationPathMap && jspb.Message.setWrapperField(
+      msg, 3, jspb.Map.fromObject(obj.navigationPathMap, proto.apollo.relative_map.NavigationPath, proto.apollo.relative_map.NavigationPath.fromObject));
+  obj.laneMarker && jspb.Message.setWrapperField(
+      msg, 4, proto.apollo.perception.LaneMarkers.fromObject(obj.laneMarker));
+  obj.localization && jspb.Message.setWrapperField(
+      msg, 5, proto.apollo.localization.LocalizationEstimate.fromObject(obj.localization));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

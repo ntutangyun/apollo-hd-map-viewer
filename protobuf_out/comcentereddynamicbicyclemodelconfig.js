@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -79,6 +80,30 @@ proto.apollo.common.ComCenteredDynamicBicycleModelConfig.toObject = function(inc
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of ComCenteredDynamicBicycleModelConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.ComCenteredDynamicBicycleModelConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.dt;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.ComCenteredDynamicBicycleModelConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.ComCenteredDynamicBicycleModelConfig}
+ */
+proto.apollo.common.ComCenteredDynamicBicycleModelConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.common.ComCenteredDynamicBicycleModelConfig();
+  obj.dt != null && jspb.Message.setField(msg, 1, obj.dt);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

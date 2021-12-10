@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -89,6 +90,37 @@ proto.apollo.hdmap.RoadBoundary.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of RoadBoundary as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.RoadBoundary.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.outerPolygon;
+
+  /** @type {?|undefined} */
+  this.holeList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.RoadBoundary.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.RoadBoundary}
+ */
+proto.apollo.hdmap.RoadBoundary.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.RoadBoundary();
+  obj.outerPolygon && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.BoundaryPolygon.fromObject(obj.outerPolygon));
+  obj.holeList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.holeList.map(
+          proto.apollo.hdmap.BoundaryPolygon.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

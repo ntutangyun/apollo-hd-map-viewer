@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -93,6 +94,48 @@ proto.apollo.common.DriveEvent.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of DriveEvent as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.DriveEvent.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.event;
+
+  /** @type {?|undefined} */
+  this.location;
+
+  /** @type {?|undefined} */
+  this.typeList;
+
+  /** @type {?|undefined} */
+  this.isReportable;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.DriveEvent.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.DriveEvent}
+ */
+proto.apollo.common.DriveEvent.fromObject = function(obj) {
+  var msg = new proto.apollo.common.DriveEvent();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.event != null && jspb.Message.setField(msg, 2, obj.event);
+  obj.location && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.localization.Pose.fromObject(obj.location));
+  obj.typeList != null && jspb.Message.setField(msg, 4, obj.typeList);
+  obj.isReportable != null && jspb.Message.setField(msg, 5, obj.isReportable);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

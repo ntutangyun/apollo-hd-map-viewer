@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -105,6 +106,126 @@ proto.apollo.common.VehicleParam.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of VehicleParam as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.VehicleParam.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.brand;
+
+  /** @type {?|undefined} */
+  this.vehicleId;
+
+  /** @type {?|undefined} */
+  this.frontEdgeToCenter;
+
+  /** @type {?|undefined} */
+  this.backEdgeToCenter;
+
+  /** @type {?|undefined} */
+  this.leftEdgeToCenter;
+
+  /** @type {?|undefined} */
+  this.rightEdgeToCenter;
+
+  /** @type {?|undefined} */
+  this.length;
+
+  /** @type {?|undefined} */
+  this.width;
+
+  /** @type {?|undefined} */
+  this.height;
+
+  /** @type {?|undefined} */
+  this.minTurnRadius;
+
+  /** @type {?|undefined} */
+  this.maxAcceleration;
+
+  /** @type {?|undefined} */
+  this.maxDeceleration;
+
+  /** @type {?|undefined} */
+  this.maxSteerAngle;
+
+  /** @type {?|undefined} */
+  this.maxSteerAngleRate;
+
+  /** @type {?|undefined} */
+  this.minSteerAngleRate;
+
+  /** @type {?|undefined} */
+  this.steerRatio;
+
+  /** @type {?|undefined} */
+  this.wheelBase;
+
+  /** @type {?|undefined} */
+  this.wheelRollingRadius;
+
+  /** @type {?|undefined} */
+  this.maxAbsSpeedWhenStopped;
+
+  /** @type {?|undefined} */
+  this.brakeDeadzone;
+
+  /** @type {?|undefined} */
+  this.throttleDeadzone;
+
+  /** @type {?|undefined} */
+  this.steeringLatencyParam;
+
+  /** @type {?|undefined} */
+  this.throttleLatencyParam;
+
+  /** @type {?|undefined} */
+  this.brakeLatencyParam;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.VehicleParam.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.VehicleParam}
+ */
+proto.apollo.common.VehicleParam.fromObject = function(obj) {
+  var msg = new proto.apollo.common.VehicleParam();
+  obj.brand != null && jspb.Message.setField(msg, 1, obj.brand);
+  obj.vehicleId && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.common.VehicleID.fromObject(obj.vehicleId));
+  obj.frontEdgeToCenter != null && jspb.Message.setField(msg, 3, obj.frontEdgeToCenter);
+  obj.backEdgeToCenter != null && jspb.Message.setField(msg, 4, obj.backEdgeToCenter);
+  obj.leftEdgeToCenter != null && jspb.Message.setField(msg, 5, obj.leftEdgeToCenter);
+  obj.rightEdgeToCenter != null && jspb.Message.setField(msg, 6, obj.rightEdgeToCenter);
+  obj.length != null && jspb.Message.setField(msg, 7, obj.length);
+  obj.width != null && jspb.Message.setField(msg, 8, obj.width);
+  obj.height != null && jspb.Message.setField(msg, 9, obj.height);
+  obj.minTurnRadius != null && jspb.Message.setField(msg, 10, obj.minTurnRadius);
+  obj.maxAcceleration != null && jspb.Message.setField(msg, 11, obj.maxAcceleration);
+  obj.maxDeceleration != null && jspb.Message.setField(msg, 12, obj.maxDeceleration);
+  obj.maxSteerAngle != null && jspb.Message.setField(msg, 13, obj.maxSteerAngle);
+  obj.maxSteerAngleRate != null && jspb.Message.setField(msg, 14, obj.maxSteerAngleRate);
+  obj.minSteerAngleRate != null && jspb.Message.setField(msg, 15, obj.minSteerAngleRate);
+  obj.steerRatio != null && jspb.Message.setField(msg, 16, obj.steerRatio);
+  obj.wheelBase != null && jspb.Message.setField(msg, 17, obj.wheelBase);
+  obj.wheelRollingRadius != null && jspb.Message.setField(msg, 18, obj.wheelRollingRadius);
+  obj.maxAbsSpeedWhenStopped != null && jspb.Message.setField(msg, 19, obj.maxAbsSpeedWhenStopped);
+  obj.brakeDeadzone != null && jspb.Message.setField(msg, 20, obj.brakeDeadzone);
+  obj.throttleDeadzone != null && jspb.Message.setField(msg, 21, obj.throttleDeadzone);
+  obj.steeringLatencyParam && jspb.Message.setWrapperField(
+      msg, 22, proto.apollo.common.LatencyParam.fromObject(obj.steeringLatencyParam));
+  obj.throttleLatencyParam && jspb.Message.setWrapperField(
+      msg, 23, proto.apollo.common.LatencyParam.fromObject(obj.throttleLatencyParam));
+  obj.brakeLatencyParam && jspb.Message.setWrapperField(
+      msg, 24, proto.apollo.common.LatencyParam.fromObject(obj.brakeLatencyParam));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -85,6 +86,46 @@ proto.apollo.common.adapter.AdapterConfig.toObject = function(includeInstance, m
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of AdapterConfig as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.adapter.AdapterConfig.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.type;
+
+  /** @type {?|undefined} */
+  this.mode;
+
+  /** @type {?|undefined} */
+  this.messageHistoryLimit;
+
+  /** @type {?|undefined} */
+  this.latch;
+
+  /** @type {?|undefined} */
+  this.topic;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.adapter.AdapterConfig.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.adapter.AdapterConfig}
+ */
+proto.apollo.common.adapter.AdapterConfig.fromObject = function(obj) {
+  var msg = new proto.apollo.common.adapter.AdapterConfig();
+  obj.type != null && jspb.Message.setField(msg, 1, obj.type);
+  obj.mode != null && jspb.Message.setField(msg, 2, obj.mode);
+  obj.messageHistoryLimit != null && jspb.Message.setField(msg, 3, obj.messageHistoryLimit);
+  obj.latch != null && jspb.Message.setField(msg, 4, obj.latch);
+  obj.topic != null && jspb.Message.setField(msg, 5, obj.topic);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

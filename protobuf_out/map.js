@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -126,6 +127,109 @@ proto.apollo.hdmap.Map.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of Map as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.Map.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.crosswalkList;
+
+  /** @type {?|undefined} */
+  this.junctionList;
+
+  /** @type {?|undefined} */
+  this.laneList;
+
+  /** @type {?|undefined} */
+  this.stopSignList;
+
+  /** @type {?|undefined} */
+  this.signalList;
+
+  /** @type {?|undefined} */
+  this.yieldList;
+
+  /** @type {?|undefined} */
+  this.overlapList;
+
+  /** @type {?|undefined} */
+  this.clearAreaList;
+
+  /** @type {?|undefined} */
+  this.speedBumpList;
+
+  /** @type {?|undefined} */
+  this.roadList;
+
+  /** @type {?|undefined} */
+  this.parkingSpaceList;
+
+  /** @type {?|undefined} */
+  this.pncJunctionList;
+
+  /** @type {?|undefined} */
+  this.rsuList;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.Map.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.Map}
+ */
+proto.apollo.hdmap.Map.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.Map();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Header.fromObject(obj.header));
+  obj.crosswalkList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.crosswalkList.map(
+          proto.apollo.hdmap.Crosswalk.fromObject));
+  obj.junctionList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.junctionList.map(
+          proto.apollo.hdmap.Junction.fromObject));
+  obj.laneList && jspb.Message.setRepeatedWrapperField(
+      msg, 4, obj.laneList.map(
+          proto.apollo.hdmap.Lane.fromObject));
+  obj.stopSignList && jspb.Message.setRepeatedWrapperField(
+      msg, 5, obj.stopSignList.map(
+          proto.apollo.hdmap.StopSign.fromObject));
+  obj.signalList && jspb.Message.setRepeatedWrapperField(
+      msg, 6, obj.signalList.map(
+          proto.apollo.hdmap.Signal.fromObject));
+  obj.yieldList && jspb.Message.setRepeatedWrapperField(
+      msg, 7, obj.yieldList.map(
+          proto.apollo.hdmap.YieldSign.fromObject));
+  obj.overlapList && jspb.Message.setRepeatedWrapperField(
+      msg, 8, obj.overlapList.map(
+          proto.apollo.hdmap.Overlap.fromObject));
+  obj.clearAreaList && jspb.Message.setRepeatedWrapperField(
+      msg, 9, obj.clearAreaList.map(
+          proto.apollo.hdmap.ClearArea.fromObject));
+  obj.speedBumpList && jspb.Message.setRepeatedWrapperField(
+      msg, 10, obj.speedBumpList.map(
+          proto.apollo.hdmap.SpeedBump.fromObject));
+  obj.roadList && jspb.Message.setRepeatedWrapperField(
+      msg, 11, obj.roadList.map(
+          proto.apollo.hdmap.Road.fromObject));
+  obj.parkingSpaceList && jspb.Message.setRepeatedWrapperField(
+      msg, 12, obj.parkingSpaceList.map(
+          proto.apollo.hdmap.ParkingSpace.fromObject));
+  obj.pncJunctionList && jspb.Message.setRepeatedWrapperField(
+      msg, 13, obj.pncJunctionList.map(
+          proto.apollo.hdmap.PNCJunction.fromObject));
+  obj.rsuList && jspb.Message.setRepeatedWrapperField(
+      msg, 14, obj.rsuList.map(
+          proto.apollo.hdmap.RSU.fromObject));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

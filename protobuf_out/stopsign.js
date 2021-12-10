@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -94,6 +95,47 @@ proto.apollo.hdmap.StopSign.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of StopSign as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.hdmap.StopSign.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.id;
+
+  /** @type {?|undefined} */
+  this.stopLineList;
+
+  /** @type {?|undefined} */
+  this.overlapIdList;
+
+  /** @type {?|undefined} */
+  this.type;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.hdmap.StopSign.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.hdmap.StopSign}
+ */
+proto.apollo.hdmap.StopSign.fromObject = function(obj) {
+  var msg = new proto.apollo.hdmap.StopSign();
+  obj.id && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.hdmap.Id.fromObject(obj.id));
+  obj.stopLineList && jspb.Message.setRepeatedWrapperField(
+      msg, 2, obj.stopLineList.map(
+          proto.apollo.hdmap.Curve.fromObject));
+  obj.overlapIdList && jspb.Message.setRepeatedWrapperField(
+      msg, 3, obj.overlapIdList.map(
+          proto.apollo.hdmap.Id.fromObject));
+  obj.type != null && jspb.Message.setField(msg, 4, obj.type);
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).

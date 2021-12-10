@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -83,6 +84,41 @@ proto.apollo.common.LatencyReport.toObject = function(includeInstance, msg) {
 };
 }
 
+
+if (jspb.Message.GENERATE_FROM_OBJECT) {
+
+/**
+ * The raw object form of LatencyReport as accepted by the `fromObject` method.
+ * @record
+ */
+proto.apollo.common.LatencyReport.ObjectFormat = function() {
+  /** @type {?|undefined} */
+  this.header;
+
+  /** @type {?|undefined} */
+  this.e2esLatency;
+
+  /** @type {?|undefined} */
+  this.modulesLatency;
+};
+
+/**
+ * Loads data from an object into a new instance of this proto.
+ * @param {!proto.apollo.common.LatencyReport.ObjectFormat} obj
+ *     The object representation of this proto to load the data from.
+ * @return {!proto.apollo.common.LatencyReport}
+ */
+proto.apollo.common.LatencyReport.fromObject = function(obj) {
+  var msg = new proto.apollo.common.LatencyReport();
+  obj.header && jspb.Message.setWrapperField(
+      msg, 1, proto.apollo.common.Header.fromObject(obj.header));
+  obj.e2esLatency && jspb.Message.setWrapperField(
+      msg, 2, proto.apollo.common.LatencyTrack.fromObject(obj.e2esLatency));
+  obj.modulesLatency && jspb.Message.setWrapperField(
+      msg, 3, proto.apollo.common.LatencyTrack.fromObject(obj.modulesLatency));
+  return msg;
+};
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
