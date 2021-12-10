@@ -99,6 +99,10 @@ export default class HMISelectors extends React.Component {
             <React.Fragment>
                 <div style={{marginRight: "1rem"}}>Select either base_map.bin or sim_map.bin</div>
                 <input type="file" onChange={onSimMapFileSelected}/>
+                <button style={{margin: "0 1rem"}}
+                        onClick={() => alert("Author: Tang Yun -- ntutangyun [at] gmail [dot] com. \n\nI'm currently working on safety testing of Autonomous vehicles. Collaborations are welcome :)\n\nBuilt from Apollo's Dreamview.")}>
+                    Author
+                </button>
             </React.Fragment>
         );
     }
