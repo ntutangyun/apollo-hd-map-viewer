@@ -285,11 +285,11 @@
 			"menuId": "mapClearArea"
 		},
 		"showMapJunction": {
-			"default": false,
+			"default": true,
 			"menuId": "mapJunction"
 		},
 		"showMapPncJunction": {
-			"default": false,
+			"default": true,
 			"menuId": "mapPncJunction"
 		},
 		"showMapLane": {
@@ -297,7 +297,7 @@
 			"menuId": "mapLane"
 		},
 		"showMapRoad": {
-			"default": false,
+			"default": true,
 			"menuId": "mapRoad"
 		},
 		"showMapSignal": {
@@ -321,7 +321,7 @@
 			"menuId": "mapParkingSpace"
 		},
 		"showMapLaneId": {
-			"default": false,
+			"default": true,
 			"menuId": "mapLaneId"
 		},
 		"showDefaultRoutingInput": {
