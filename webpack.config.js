@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -30,10 +30,10 @@ module.exports = {
         //
         // Needs ".json" and ".scss" for Grommet.
         extensions: [".webpack.js", ".web.js",
-                     ".jsx", ".js",
-                     ".json",
-                     ".scss", ".css",
-                     ".png", ".svg"],
+            ".jsx", ".js",
+            ".json",
+            ".scss", ".css",
+            ".png", ".svg"],
         alias: {
             store: path.resolve(__dirname, "src/store"),
             styles: path.resolve(__dirname, "src/styles"),
@@ -58,21 +58,23 @@ module.exports = {
                             presets: ["env", "stage-0", "react"],
                             // Enable decorators for mobx.
                             plugins: ["transform-decorators-legacy",
-                                      "transform-runtime"],
+                                "transform-runtime"],
                         }
                     }
                 ],
-            }, {
-                // Run eslint. See .eslinrc for configuration.
-                test: /\.js$/,
-                enforce: "pre",
-                loader: "eslint-loader",
-            }, {
+            },
+            // {
+            //     // Run eslint. See .eslinrc for configuration.
+            //     test: /\.js$/,
+            //     enforce: "pre",
+            //     loader: "eslint-loader",
+            // },
+            {
                 test: /\.yml$/,
                 exclude: /node_modules/,
                 use: [
-                    { loader: "json-loader" },
-                    { loader: "yaml-loader" }
+                    {loader: "json-loader"},
+                    {loader: "yaml-loader"}
                 ],
             }, {
                 // Object models and materials.
@@ -100,7 +102,7 @@ module.exports = {
                     {
                         loader: "file-loader",
                         options: {
-                            name: 'assets/[hash:base64:55].[ext]',
+                            name: "assets/[hash:base64:55].[ext]",
                         }
                     }, {
                         loader: "image-webpack-loader",
@@ -152,29 +154,29 @@ module.exports = {
             }, {
                 test: /webworker\.js$/,
                 use: [
-                {
-                    loader: 'worker-loader',
-                    options: {
-                        name: 'worker.bundle.js'
+                    {
+                        loader: "worker-loader",
+                        options: {
+                            name: "worker.bundle.js"
+                        },
                     },
-                },
-                {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["env"],
-                    }
-                }]
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["env"],
+                        }
+                    }]
             }, {
                 test: /parameters.yml/,
                 use: [{
-                    loader: 'file-loader',
+                    loader: "file-loader",
                     options: {
-                        name: '[path][name].json',
-                        context: 'src/store/config',
+                        name: "[path][name].json",
+                        context: "src/store/config",
                         outputPath: ".", // the "dist" dir
                     }
-                },{
-                    loader: 'yaml-loader'
+                }, {
+                    loader: "yaml-loader"
                 }]
             },
         ]
@@ -197,8 +199,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: '../node_modules/three/examples/fonts',
-                to: 'fonts',
+                from: "../node_modules/three/examples/fonts",
+                to: "fonts",
             }
         ]),
         // As of moment 2.18, all locales are bundled together with the core library
@@ -218,7 +220,7 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, "src"),
-        host: '0.0.0.0',
+        host: "0.0.0.0",
         port: 8080,
         // Ask react-router instead of the server to handle routes.
         historyApiFallback: true,

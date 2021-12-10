@@ -225,16 +225,16 @@ options:
     default: true
     menuId: mapClearArea
   showMapJunction:
-    default: false
+    default: true
     menuId: mapJunction
   showMapPncJunction:
-    default: false
+    default: true
     menuId: mapPncJunction
   showMapLane:
     default: true
     menuId: mapLane
   showMapRoad:
-    default: false
+    default: true
     menuId: mapRoad
   showMapSignal:
     default: true
@@ -252,7 +252,7 @@ options:
     default: true
     menuId: mapParkingSpace
   showMapLaneId:
-    default: false
+    default: true
     menuId: mapLaneId
   showDefaultRoutingInput:
     default: false

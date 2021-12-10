@@ -114,14 +114,14 @@ export default class Dimension {
 
     @action updateMainDimension() {
       this.main.height = this.pane.height;
-      if (this.options.showTools) {
-        const heightRatio = OFFLINE_PLAYBACK ? 0.65 : 0.60;
-        const maxHeight = this.isSmallScreen()
-          ? MAX_TOOL_VIEW_HEIGHT_IN_PX.small : MAX_TOOL_VIEW_HEIGHT_IN_PX.large;
-        this.main.height = Math.max(
-          this.pane.height - maxHeight,
-          this.pane.height * heightRatio);
-      }
+      // if (this.options.showTools) {
+      //   const heightRatio = OFFLINE_PLAYBACK ? 0.65 : 0.60;
+      //   const maxHeight = this.isSmallScreen()
+      //     ? MAX_TOOL_VIEW_HEIGHT_IN_PX.small : MAX_TOOL_VIEW_HEIGHT_IN_PX.large;
+      //   this.main.height = Math.max(
+      //     this.pane.height - maxHeight,
+      //     this.pane.height * heightRatio);
+      // }
 
       let widthOffset = 0;
       if (!OFFLINE_PLAYBACK) {

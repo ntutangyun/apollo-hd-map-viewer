@@ -4,6 +4,7 @@ import Selector from "components/Header/Selector";
 import WS from "store/websocket";
 import RENDERER from "../../renderer";
 import STORE from "../../store";
+import {inject, observer} from "mobx-react";
 
 function readFileArrayBuffer(file) {
     return new Promise(resolve => {
@@ -45,52 +46,59 @@ function formatSimMapObject(simMapObject) {
     return res;
 }
 
+function extractRandomPositionFromMap(mapData) {
+    if (mapData.lane.length === 0) {
+        alert("Error: map data does not have any lanes...");
+        return null;
+    }
+
+    return mapData.lane[0].centralCurve.segment[0].startPosition;
+}
+
+async function onSimMapFileSelected(e) {
+    const arrayBuffer = await readFileArrayBuffer(e.target.files[0]);
+    let mapData = proto.apollo.hdmap.Map.deserializeBinary(arrayBuffer).toObject();
+
+    mapData = formatSimMapObject(mapData);
+    console.log((JSON.parse(JSON.stringify(mapData))));
+
+    // simulate sim_world_update
+    RENDERER.coordinates.setSystem("ENU");
+    const {x, y, z} = extractRandomPositionFromMap(mapData);
+
+    const message = {
+        timestamp: 1639103113554,
+        autoDrivingCar: {
+            positionX: x,
+            positionY: y
+        }
+    };
+
+    RENDERER.maybeInitializeOffest(x, y, false);
+
+    RENDERER.updateMap(mapData, true);
+    STORE.setInitializationStatus(true);
+    STORE.update(message, true);
+
+    RENDERER.updateWorld(message);
+}
+
+@inject("store") @observer
 export default class HMISelectors extends React.Component {
+
     render() {
-        const {
-            modes, currentMode,
-            maps, currentMap,
-            vehicles, currentVehicle,
-        } = this.props;
+        const {isInitialized} = this.props.store;
 
-        const onSimMapFileSelected = async (e) => {
-            const arrayBuffer = await readFileArrayBuffer(e.target.files[0]);
-            console.log(arrayBuffer);
-            console.log(proto.apollo.hdmap.Map.deserializeBinary(arrayBuffer));
-            const mapData = proto.apollo.hdmap.Map.deserializeBinary(arrayBuffer).toObject();
-            console.log(mapData);
-
-            RENDERER.updateMap(mapData, true);
-            STORE.setInitializationStatus(true);
-        };
+        if (isInitialized) {
+            setTimeout(() => {
+                document.getElementById("route-editing-tab").click();
+            }, 1000);
+        }
 
         return (
             <React.Fragment>
-                {/*<Selector*/}
-                {/*    name="setup mode"*/}
-                {/*    options={modes}*/}
-                {/*    currentOption={currentMode}*/}
-                {/*    onChange={(event) => {*/}
-                {/*        WS.changeSetupMode(event.target.value);*/}
-                {/*    }}*/}
-                {/*/>*/}
-                {/*<Selector*/}
-                {/*    name="vehicle"*/}
-                {/*    options={vehicles}*/}
-                {/*    currentOption={currentVehicle}*/}
-                {/*    onChange={(event) => {*/}
-                {/*        WS.changeVehicle(event.target.value);*/}
-                {/*    }}*/}
-                {/*/>*/}
+                <div style={{marginRight: "1rem"}}>Select either base_map.bin or sim_map.bin</div>
                 <input type="file" onChange={onSimMapFileSelected}/>
-                {/*<Selector*/}
-                {/*    name="map"*/}
-                {/*    options={maps}*/}
-                {/*    currentOption={currentMap}*/}
-                {/*    onChange={(event) => {*/}
-                {/*        WS.changeMap(event.target.value);*/}
-                {/*    }}*/}
-                {/*/>*/}
             </React.Fragment>
         );
     }

@@ -230,10 +230,10 @@ export default class RealtimeWebSocketEndpoint {
     }
 
     requestMapElementIdsByRadius(radius) {
-        this.websocket.send(JSON.stringify({
-            type: "RetrieveMapElementIdsByRadius",
-            radius,
-        }));
+        // this.websocket.send(JSON.stringify({
+        //     type: "RetrieveMapElementIdsByRadius",
+        //     radius,
+        // }));
     }
 
     requestRoute(start, start_heading, waypoint, end, parkingInfo) {

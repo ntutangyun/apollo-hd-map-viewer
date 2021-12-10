@@ -32,8 +32,6 @@ class SceneView extends React.Component {
                     options={options}
                     shouldDisplayOnRight={dimension.shouldDivideSceneAndMapSpace}
                 />
-                {monitor.isSirenOn &&
-                  <EmergencyNotification msg="Emergency Siren Detected" />}
                 {options.showRouteEditingBar
                   ? <RouteEditingBar />
                   : (
@@ -45,15 +43,6 @@ class SceneView extends React.Component {
                             monitor={monitor}
                         />
                   )}
-                {OFFLINE_PLAYBACK && <PlaybackControls />}
-                {hmi.shouldDisplayNavigationMap
-                    && (
-                        <Navigation
-                            onResize={() => dimension.toggleNavigationSize()}
-                            hasRoutingControls={hmi.inNavigationMode}
-                            {...dimension.navigation}
-                        />
-                    )}
             </React.Fragment>
     );
   }

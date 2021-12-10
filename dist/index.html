@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dreamview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        loadJSON("parameters.json", (response) => {
+            window.PARAMETERS = JSON.parse(response);
+        });
+
+        function loadJSON(jsonFilePath, callback) {
+            console.log("Loading Json file:", jsonFilePath);
+            const xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open("GET", jsonFilePath, false /* synchronous */);
+            xobj.onreadystatechange = () => {
+                if (xobj.readyState === 4 && xobj.status === 200) {
+                    // Required use of an anonymous callback as .open will NOT
+                    // return a value but simply returns undefined in asynchronous mode
+                    callback(xobj.responseText);
+                }
+            };
+            xobj.send(null);
+        }
+    </script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/closure-base.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/google-protobuf.js"></script>
+
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/adapterconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/adaptermanagerconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/boundaryedge.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/boundarypolygon.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/cameraconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/cameraupdate.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/car.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/channelmonitorconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/channelverifyrequest.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/channelverifyresponse.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/chart.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/cleararea.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/clearareaoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/cmdtype.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/comcentereddynamicbicyclemodelconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/comparisonoperator.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/controldata.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/criterion.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/crosswalk.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/crosswalkoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/curve.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/curvesegment.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/cybermodule.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/daemoncmd.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/daemonrpt.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/datacollectiontable.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/datatype.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/decision.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/delaysinms.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/direction.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/driveevent.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/dynamicalignrequest.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/dynamicalignresponse.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/eightrouterequest.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/eightrouteresponse.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/engageadvice.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/errorcode.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/extrinsics.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/feature.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/framerate.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/frenetframepoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/gaussianinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/header.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/hmiaction.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/hmiconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/hmimode.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/hmistatus.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/id.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/junction.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/junctionoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/lane.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/laneboundary.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/laneboundarytype.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/laneoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/lanesampleassociation.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latency.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencyparam.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencyrecord.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencyrecordmap.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencyreport.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencystat.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/latencytrack.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/lidarconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/line.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/linesegment.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/loopresult.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/loopsverifyrequest.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/loopsverifyresponse.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/map.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/mapelementids.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/mapgenerationparam.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/mapmsg.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/mlpmodelconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/modeminfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/module.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/modulemonitorconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/monitoredcomponent.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/monitormessage.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/monitormessageitem.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/navigationinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/navigationlaneconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/navigationpath.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/navigatorconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/notification.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/object.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/objectoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/options.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/overlap.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/parkinglot.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/parkingspace.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/parkingspaceoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/passage.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/passagegroup.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/path.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pathpoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pncjunction.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pncjunctionoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/point2d.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/point3d.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pointcloud.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pointenu.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/pointllh.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/polygon.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/polygonpoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/prediction.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/preprocesstable.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/processmonitorconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/progress.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/projection.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/proto.apollo.common_errorcode.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/proto.apollo.common_header.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/proto.apollo.common_polygon.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/proto.apollo.hdmap_polygon.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/quaternion.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/range.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/rearcenteredkinematicbicyclemodelconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/regionoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/relativemapconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/resourcemonitorconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/road.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/roadboundary.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/roadroiboundary.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/roadsection.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/routepath.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/rsu.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/rsuoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/sampleparam.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/scenario.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/sensormeasurements.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/signal.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/signaloverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/signinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/simplemessage.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/simplerepeatedmessage.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/simulationworld.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/slpoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/speedbump.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/speedbumpoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/speedcontrol.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/speedcontrols.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/speedpoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/staticalignrequest.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/staticalignresponse.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/status.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/statuspb.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/stopsign.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/stopsignoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/subsignal.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/topicresult.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/trajectory.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/trajectorypoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/transform.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/translation.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclebrand.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehicleconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehicledata.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehicleid.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclemodelconfig.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclemotion.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclemotionpoint.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehicleparam.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclesignal.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/vehiclestate.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/verifyrange.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/verifyresult.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/yieldoverlapinfo.js"></script>
+    <script src="https://ntutangyun.github.io/apollo-hd-map-viewer/protobuf_out/yieldsign.js"></script>
+
+<link rel="icon" href="/apollo-hd-map-viewer/icons/favicon.png"></head>
+<body>
+<div id="root"></div>
+<script src="/apollo-hd-map-viewer/app.bundle.js"></script></body>
+</html>
