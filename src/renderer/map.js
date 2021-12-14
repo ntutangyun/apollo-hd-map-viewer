@@ -215,6 +215,38 @@ export default class Map {
         return text;
     }
 
+    addCrosswalkId(crosswalk, coordinates, scene) {
+        const polygonPoints = crosswalk.polygon.point;
+        const polygonCount = polygonPoints.length;
+        let position = {x: 0, y: 0, z: 0.04};
+
+        polygonPoints.forEach(p => {
+            position.x += p.x;
+            position.y += p.y;
+        });
+
+        position.x = position.x / polygonCount;
+        position.y = position.y / polygonCount;
+
+        position = coordinates.applyOffset(position);
+
+        const rotation = {x: 0.0, y: 0.0, z: 0.0};
+
+        const text = this.textRender.drawText(
+            crosswalk.id.id, scene, colorMapping.WHITE, TEXT_ALIGN.LEFT);
+        if (text) {
+            const textPosition = position;
+            if (textPosition) {
+                text.position.set(textPosition.x, textPosition.y, textPosition.z);
+                text.rotation.set(rotation.x, rotation.y, rotation.z);
+            }
+            text.visible = true;
+            scene.add(text);
+        }
+
+        return text;
+    }
+
     addJunctionId(junction, coordinates, scene) {
         const polygonPoints = junction.polygon.point;
         const polygonCount = polygonPoints.length;
@@ -437,6 +469,7 @@ export default class Map {
                             drewObjects: this.addZone(
                                 newData[kind][i], colorMapping.PURE_WHITE, coordinates, scene,
                             ),
+                            text: this.addCrosswalkId(newData[kind][i], coordinates, scene),
                         }));
                         break;
                     case "junction":

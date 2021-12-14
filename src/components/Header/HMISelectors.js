@@ -55,9 +55,20 @@ function extractRandomPositionFromMap(mapData) {
     return mapData.lane[0].centralCurve.segment[0].startPosition;
 }
 
+function fixCrosswalkId(mapData) {
+    console.log(mapData);
+    mapData.crosswalkList.forEach((crosswalk, index) => {
+        if (!crosswalk.id) {
+            crosswalk.id = {id: `CW_${index}`};
+        }
+    });
+}
+
 async function onSimMapFileSelected(e) {
     const arrayBuffer = await readFileArrayBuffer(e.target.files[0]);
     let mapData = proto.apollo.hdmap.Map.deserializeBinary(arrayBuffer).toObject();
+
+    fixCrosswalkId(mapData);
 
     mapData = formatSimMapObject(mapData);
     console.log((JSON.parse(JSON.stringify(mapData))));
