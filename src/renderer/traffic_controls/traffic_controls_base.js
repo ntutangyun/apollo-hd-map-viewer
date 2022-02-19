@@ -16,6 +16,10 @@ export default class TrafficControlsBase {
     }
 
     static loadModel(material, object, scales, position, heading, callback) {
+        // if (!heading || !position) {
+        //     return callback("Invalid parameters.");
+        // }
+
         if ((typeof heading !== "number") || !position) {
             return callback("Invalid parameters.");
         }
